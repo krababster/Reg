@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Reg.GUI;
 using System.Windows.Forms;
 
 namespace Reg
@@ -16,7 +14,7 @@ namespace Reg
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Registration());
+            Application.Run(new StartForm());
         }
     }
 }

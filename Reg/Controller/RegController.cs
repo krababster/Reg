@@ -3,6 +3,7 @@ using Reg.Model;
 using System.Linq;
 using System.Data.SqlClient;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Reg.Controller
 {
@@ -21,10 +22,11 @@ namespace Reg.Controller
                 connection.Open();
                 UserData regestration = new UserData() { user_email = _email, user_password = new Scrypt().Generate(_pass) };
                 connection.Execute("INSERT INTO UserData (user_email, user_password) VALUES(@user_email,@user_password)", regestration);
+               
             }
         }
 
-        public List<UserData> Validate()
+        public List<UserData> VerifyEmail()
         {
             string connectionString = @"Data Source=krababster;Initial Catalog=TestDB;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -33,5 +35,7 @@ namespace Reg.Controller
                 return connection.Query<UserData>("SELECT user_email FROM UserData").ToList();
             }
         }
+
+        
     }
 }

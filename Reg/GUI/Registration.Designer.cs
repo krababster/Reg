@@ -85,7 +85,7 @@
             // regBtn
             // 
             this.regBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regBtn.Location = new System.Drawing.Point(90, 388);
+            this.regBtn.Location = new System.Drawing.Point(85, 384);
             this.regBtn.Name = "regBtn";
             this.regBtn.Size = new System.Drawing.Size(196, 46);
             this.regBtn.TabIndex = 5;

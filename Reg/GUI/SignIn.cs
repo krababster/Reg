@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Reg.Controller;
 using System.Windows.Forms;
 
 namespace Reg.Forms
@@ -16,10 +10,38 @@ namespace Reg.Forms
         {
             InitializeComponent();
         }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.TextLength == 0)
+                button1.Enabled = false;
+            else
+                button1.Enabled = true;
+        }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+            if (textBox2.TextLength == 0)
+                button1.Enabled = false;
+            else
+                button1.Enabled = true;
+        }
 
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RegController newUser = new RegController();
+            foreach (var emails in newUser.VerifyEmail())
+            {
+                if (textBox1.Text == emails.user_email)
+                {
+                    MessageBox.Show("Вход выполнен успешно!");
+                    return;
+                }
+            }
+                    MessageBox.Show("email введен неверно");
+                return;
+
+           
         }
     }
 }
